@@ -1,4 +1,4 @@
-/* Copyright 2015-2023 Jack Humbert
+/* Copyright 2015-2021 Jack Humbert
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,12 +18,14 @@
 
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #ifdef AUDIO_ENABLE
-#    define STARTUP_SONG SONG(PLANCK_SOUND)
+#    define STARTUP_SONG SONG(PREONIC_SOUND)
 // #define STARTUP_SONG SONG(NO_SOUND)
 
 #    define DEFAULT_LAYER_SONGS \
         { SONG(QWERTY_SOUND), SONG(COLEMAK_SOUND), SONG(DVORAK_SOUND) }
 #endif
+
+#define MUSIC_MASK (keycode != KC_NO)
 
 /*
  * MIDI options
@@ -41,11 +43,7 @@
    - Virtual sustain, portamento, and modulation wheel
    - etc.
 */
-// #define MIDI_ADVANCED
+//#define MIDI_ADVANCED
 
-/*
- * Encoder options
- */
-// #define PLANCK_ENCODER_SETTLE_PIN_STATE_DELAY 20
-// #define ENCODER_MAP_KEY_DELAY 10
-// #define ENCODER_RESOLUTION 4
+/* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
+//#define MIDI_TONE_KEYCODE_OCTAVES 2
